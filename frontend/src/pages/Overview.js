@@ -25,9 +25,14 @@ const Overview = () => {
     fetchData();
   }, []);
 
+  // useEffect(() => {
+  //   generateAlerts();
+  // }, [summary, recentMetrics]);
+
   useEffect(() => {
-    generateAlerts();
-  }, [summary, recentMetrics]);
+  generateAlerts();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
 
   const fetchData = async () => {
     setIsLoading(true);
