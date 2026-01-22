@@ -1,4 +1,10 @@
+# 📊 Campaign Pulse Dashboard
 
+A full-stack ad campaign analytics platform that provides real-time performance tracking, campaign insights, and interactive visualizations for digital marketing platforms like Google Ads and Facebook Ads.
+
+Built using React, FastAPI, and MongoDB with secure authentication and live WebSocket-based updates.
+
+---
 ---
 
 ## 🔐 Authentication Flow
