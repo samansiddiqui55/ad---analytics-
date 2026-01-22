@@ -1,7 +1,6 @@
 from fastapi import FastAPI, APIRouter, Depends, HTTPException, status, WebSocket, WebSocketDisconnect
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from dotenv import load_dotenv
-from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
@@ -16,21 +15,24 @@ import random
 import asyncio
 import json
 
+from fastapi.middleware.cors import CORSMiddleware
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+app = FastAPI(title="Ad Campaign Analytics API")
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",
-        "https://your-frontend-domain.vercel.app"
+        "https://ad-campaign.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 
 ROOT_DIR = Path(__file__).parent
@@ -86,7 +88,6 @@ class ConnectionManager:
 manager = ConnectionManager()
 
 # Create the main app
-app = FastAPI(title="Ad Campaign Analytics API")
 
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
